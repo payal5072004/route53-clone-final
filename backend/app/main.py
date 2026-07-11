@@ -42,9 +42,16 @@ app = FastAPI(
 
 # CORS: allow the Next.js dev server (and any deployed frontend origin) to
 # call this API. In a real deployment, tighten this to your actual domain.
+
+origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://route53-clone-final.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
